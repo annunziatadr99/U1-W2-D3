@@ -198,16 +198,50 @@ console.log(crewMass);
 
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
+if (crewMass < 500) {
+  console.log("Ship is half loaded");
+} else if (crewMass <= 500 && crewMass < 700) {
+  console.log("Ship is half loaded");
+} else if (crewMass <= 700 && crewMass < 900) {
+  console.log("Warning: Load is over 700");
+} else if (crewMass <= 900 && crewMass < 1000) {
+  console.log("Critical Load: Over 900");
+} else {
+  console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
+}
 
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  const character = structuredClone(starWarsCharacters[i]); /*crea un clone con structuredClone*/
 
+  if (character.gender === "n/a") {
+    character.gender = "robot";
+  }
+
+  newStarWarsCharacter.push(character);
+}
+
+console.log("NORMAL", starWarsCharacters);
+console.log("MODIFIED", newStarWarsCharacter);
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
+for (let i = 0; i < charactersNames.length; i++) {
+  const charName = charactersNames[i];
 
+  for (let j = 0; j < femaleCharacters.length; j++) {
+    const femObj = femaleCharacters[j];
+
+    if (charName === femObj.name) {
+      console.log("CORRISPONDENZA TROVATA", i, charName);
+      charactersNames.splice(i, 1); /*lo splice richiede (i,1) posizione da dove partire e quanti elementi da eliminale*/
+    }
+  }
+  console.log(charactersNames);
+}
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
