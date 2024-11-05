@@ -105,6 +105,7 @@ const starWarsCharacters = [
   Crea una variabile chiamata "charactersNames" e assegnale un array vuoto
 */
 const charactersNames = [];
+console.log(charactersNames);
 /* ESERCIZIO 2
   Utilizzando un ciclo for, cicla l'array "starWarsCharacters".
   Dovrai accedere alla proprietà "name" di ogni oggetto in esso contenuto, e inserirla nell'array "charactersNames" creato precedentemente.
@@ -214,17 +215,13 @@ if (crewMass < 500) {
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
 for (let i = 0; i < starWarsCharacters.length; i++) {
-  const character = structuredClone(starWarsCharacters[i]); /*crea un clone con structuredClone*/
+  const character = starWarsCharacters[i];
 
   if (character.gender === "n/a") {
     character.gender = "robot";
   }
-
-  newStarWarsCharacter.push(character);
 }
-
-console.log("NORMAL", starWarsCharacters);
-console.log("MODIFIED", newStarWarsCharacter);
+console.log(starWarsCharacters);
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
@@ -245,3 +242,5 @@ for (let i = 0; i < charactersNames.length; i++) {
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
+const random1 = Math.floor(Math.random() * starWarsCharacters.length); //Math.random = genera a caso un numero sia intero che con la virgola --  Math.floor messo prima di Math.random  (all'esterno delle parentesi)arotonda per diffetto o per eccesso il numero restituito da math.random ES: 0,8->1 oppure 0,5->0//
+console.log("random", starWarsCharacters[random1]);
